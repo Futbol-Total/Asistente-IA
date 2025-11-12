@@ -1,6 +1,10 @@
 import json
 import os
 from typing import Dict, Any
+from dotenv import load_dotenv
+
+# Cargar variables de entorno desde .env
+load_dotenv()
 
 # Nombre y ubicación del archivo de configuración
 CONFIG_FILE = os.path.join(os.path.dirname(__file__), 'config.json')
@@ -18,16 +22,17 @@ class Config:
     def _load_config(self):
         """
         Intenta cargar la configuración desde config.json. 
+        Lee las claves sensibles desde variables de entorno.
         Crea un archivo por defecto si no existe.
         """
         # Valores por defecto para crear un archivo nuevo
         default_data = {
             "assistant_name": "Asistente IA",
             "theme": "dark",
-            "GEMINI_API_KEY": "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",
+            "GEMINI_API_KEY": os.getenv("GEMINI_API_KEY", "YOUR_GEMINI_API_KEY_HERE"),
             "ai_model": "gemini-2.5-flash",
-            "GOOGLE_API_KEY": "AIzaSyBB4yR1muJmJVNBzI6q_GtSAugeNJhrKus",
-            "GOOGLE_CSE_ID": "4368144c3a0074f98"
+            "GOOGLE_API_KEY": os.getenv("GOOGLE_API_KEY", "YOUR_GOOGLE_API_KEY_HERE"),
+            "GOOGLE_CSE_ID": os.getenv("GOOGLE_CSE_ID", "YOUR_GOOGLE_CSE_ID_HERE")
         }
 
         if not os.path.exists(CONFIG_FILE):

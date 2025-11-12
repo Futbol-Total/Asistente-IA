@@ -23,5 +23,8 @@ __pycache__/
 .env
 .env.local
 
+# Configuración local (con claves sensibles)
+config.json
+
 # Base de datos temporal
 db/chroma.sqlite3
