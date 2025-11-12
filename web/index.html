@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente IA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🤖 Asistente IA</h1>
+            <button id="settingsBtn" class="settings-btn">⚙️ Configuración</button>
+        </div>
+
+        <!-- Chat Container -->
+        <div class="chat-container" id="chatContainer">
+            <div class="welcome-message">
+                <h2>Bienvenido al Asistente IA</h2>
+                <p>Configura tus claves API para comenzar</p>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+            <input 
+                type="text" 
+                id="userInput" 
+                placeholder="Escribe tu pregunta aquí..." 
+                class="message-input"
+            >
+            <button id="sendBtn" class="send-btn">📤 Enviar</button>
+            <button id="voiceBtn" class="voice-btn" title="Micrófono">🎤</button>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Configuración de API</h2>
+                
+                <div class="form-group">
+                    <label for="geminiKeyInput">Clave API Gemini:</label>
+                    <input 
+                        type="password" 
+                        id="geminiKeyInput" 
+                        placeholder="sk-proj-..."
+                        class="config-input"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="googleKeyInput">Clave API Google:</label>
+                    <input 
+                        type="password" 
+                        id="googleKeyInput" 
+                        placeholder="AIzaSyB..."
+                        class="config-input"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="googleCSEInput">Google CSE ID:</label>
+                    <input 
+                        type="text" 
+                        id="googleCSEInput" 
+                        placeholder="4368144c3a0074f98"
+                        class="config-input"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="aiModelInput">Modelo IA:</label>
+                    <input 
+                        type="text" 
+                        id="aiModelInput" 
+                        value="gemini-2.5-flash"
+                        class="config-input"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="assistantNameInput">Nombre del Asistente:</label>
+                    <input 
+                        type="text" 
+                        id="assistantNameInput" 
+                        value="Asistente IA"
+                        class="config-input"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="saveLocallyCheckbox">
+                        Guardar en navegador (localStorage)
+                    </label>
+                </div>
+
+                <button id="saveConfigBtn" class="save-btn">💾 Guardar</button>
+                <button id="clearConfigBtn" class="clear-btn">🗑️ Limpiar</button>
+            </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Asistente está pensando...</p>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="api.js"></script>
+    <script src="voice.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
