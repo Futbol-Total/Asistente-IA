@@ -1,0 +1,27 @@
+# Entorno virtual
+venv/
+env/
+ENV/
+
+# Archivos Python compilados
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Archivos de caché
+.pytest_cache/
+.coverage
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ambiente
+.env
+.env.local
+
+# Base de datos temporal
+db/chroma.sqlite3
